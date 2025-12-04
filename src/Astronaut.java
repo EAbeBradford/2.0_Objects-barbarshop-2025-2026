@@ -28,8 +28,8 @@ public class Astronaut {
     public Astronaut(int pXpos, int pYpos) {
         xpos = pXpos;
         ypos = pYpos;
-        dx =1;
-        dy =0;
+        dx =10;
+        dy =4;
         width = 60;
         height = 60;
         isAlive = true;
@@ -41,6 +41,17 @@ public class Astronaut {
         if(xpos >= 1000-width){ //bounce off the right wall
             dx = -dx;
         }
+
+        if(xpos < 0){ //bounce off the left wall
+            dx = -dx;
+        }
+        if(ypos <0){ //bounce off the top wall
+            dy = -dy;
+        }
+        if(ypos >= 700-height){ //bounce off the bottum wall
+            dy = -dy;
+        }
+
         xpos = xpos + dx;
         ypos = ypos + dy;
  
